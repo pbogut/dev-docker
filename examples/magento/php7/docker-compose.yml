@@ -1,0 +1,39 @@
+version: "2.1"
+
+services:
+  web:
+    image: pbogut/nginx:mage
+    environment:
+      MAGENTO_PATH: /code
+    ports:
+      - "${PORT:-8080}:80"
+    volumes:
+      - ./code:/code
+    links:
+      - php
+
+  php:
+    image: pbogut/php:mage-php7-fpm
+    volumes:
+      - ./code:/code
+    links:
+      - db
+
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+    volumes:
+      - db-data:/var/lib/mysql
+
+  magerun:
+    image: pbogut/magerun:php7
+    environment:
+      MAGENTO_PATH: /code
+    volumes:
+      - ./code:/code
+    links:
+      - db
+
+volumes:
+  db-data:
