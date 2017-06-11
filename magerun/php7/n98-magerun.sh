@@ -5,4 +5,5 @@
 # date:   10/06/2017
 #=================================================
 cd $MAGENTO_PATH
+echo "Current path: $(pwd)"
 n98-magerun "$@"

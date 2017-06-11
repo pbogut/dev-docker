@@ -1,6 +1,8 @@
 FROM pbogut/php:mage-php7-fpm
 
-RUN apt-get update && apt-get install -y unzip \
+RUN apt-get update && apt-get install -y \
+    unzip \
+    mysql-client \
     && curl https://files.magerun.net/n98-magerun.phar -o /usr/bin/n98-magerun \
     && chmod +x /usr/bin/n98-magerun
 
