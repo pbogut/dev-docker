@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y \
     && curl https://files.magerun.net/n98-magerun.phar -o /usr/bin/n98-magerun \
     && chmod +x /usr/bin/n98-magerun
 
-ADD memory-limit.ini /usr/local/etc/php/conf.d/momery-limit.ini
-ADD n98-magerun.sh /usr/bin/n98
+ADD memory.ini /usr/local/etc/php/conf.d/99-memory.ini
+ADD magerun.sh /usr/bin/docker-magerun-entrypoint.sh
 
-ENTRYPOINT ["n98"]
+ENTRYPOINT ["docker-magerun-entrypoint.sh"]
