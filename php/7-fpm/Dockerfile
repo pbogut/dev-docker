@@ -21,3 +21,4 @@ RUN apt-get update && apt-get install -y \
 ADD mhsendmail /usr/sbin/sendmail
 ADD mail.ini /usr/local/etc/php/conf.d/99-mail.ini
 ADD log.ini /usr/local/etc/php/conf.d/99-log.ini
+ADD error.ini /usr/local/etc/php/conf.d/99-error.ini
