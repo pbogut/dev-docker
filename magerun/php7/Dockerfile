@@ -1,4 +1,4 @@
-FROM pbogut/php:mage-php7-fpm
+FROM pbogut/php:7-fpm
 
 RUN apt-get update && apt-get install -y \
     unzip \
