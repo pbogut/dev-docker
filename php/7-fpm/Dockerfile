@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
     && tar xvf zlib-${ZLIB_VERSION}.tar.gz \
     && cd zlib-${ZLIB_VERSION} && sh ./configure && make && make install \
     && cd .. && rm -fr zlib-${ZLIB_VERSION} && rm zlib-${ZLIB_VERSION}.tar.gz \
-    && docker-php-ext-install -j$(nproc) iconv mcrypt pdo_mysql soap \
+    && docker-php-ext-install -j$(nproc) iconv mcrypt pdo_mysql soap mysqli \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd zip pdo_dblib
 
